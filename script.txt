@@ -1,0 +1,13 @@
+// full url with protocol is required
+// e.g. https://api.smsglobal.com/v2/sms
+
+var apiKey = '';
+var secretKey = '';
+var ts = Math.floor(Date.now() / 1000); 
+var nonce = Math.floor((Math.random() * 10000000));
+var urlRegex = /^((\w+):)?(\/\/((\w+)?(:(\w+))?@)?([^\/\?:]+)(:(\d+))?)?(\/?([^\/\?#][^\?#]*)?)?(\?([^#]+))?(#(\w*))?/;
+var url = urlRegex.exec(request.url);
+var auth = ts + '\n' + nonce + '\n' + request.method + '\n' + url[11] + '\n' + url[8] + '\n' + (url[2] == 'http' ? 80 : 443) + '\n' + '\n';
+var authHash = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(auth, secretKey));
+var authHeader = 'MAC id="' + apiKey + '", ts="' + ts + '", nonce="' + nonce + '", mac="' + authHash + '"';
+pm.environment.set("authorization", authHeader);
