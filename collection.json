@@ -1,0 +1,4671 @@
+{
+	"info": {
+		"_postman_id": "50917dd4-178e-4a68-b45e-10812d2c065d",
+		"name": "SMSGlobal",
+		"description": "SMSGlobal API Postman Collection.\n\nFind your API credentials in the MXT dashboard: [https://mxt.smsglobal.com/integrations](https://mxt.smsglobal.com/integrations) and copy your Master API Key Username and Password.\n\nIn MXT you can also create your REST API credentials for using the SMSGlobal REST API.\n\nOn the Postman `Environments` tab, set the following environment variables:\n\n`HttpApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\n`RestApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\n`SoapApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\n`AccountUsername` = \\[your MXT Master API Key Username\\]\n\n`AccountPassword` = \\[your MXT Master API Key Password\\]\n\n`RestApiKey` = \\[your REST API Key\\]\n\n`RestApiSecret` = \\[your REST API Secret\\]\n\nThere are also 2 dynamic environment variables that are automatically set by pre/post request scripts.\n\n`authorization` - This value is populated when using the REST API.\n\n`SoapApiTicket` - This value is populated when using the SOAP API.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "46391030",
+		"_collection_link": "https://martian-shadow-1901346.postman.co/workspace/3e706ce1-7347-4eaf-854c-a4b5dae94d5b/collection/46391030-50917dd4-178e-4a68-b45e-10812d2c065d?action=share&source=collection_link&creator=46391030"
+	},
+	"item": [
+		{
+			"name": "HTTP",
+			"item": [
+				{
+					"name": "send-sms",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{HttpApiUrl}}/http-api.php?action=sendsms&user={{AccountUsername}}&password={{AccountPassword}}&from=&to=&text=",
+							"host": [
+								"{{HttpApiUrl}}"
+							],
+							"path": [
+								"http-api.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "sendsms",
+									"description": "Action to be taken. [Default: sendsms]"
+								},
+								{
+									"key": "user",
+									"value": "{{AccountUsername}}",
+									"description": "Your SMSGlobal username"
+								},
+								{
+									"key": "password",
+									"value": "{{AccountPassword}}",
+									"description": "Your SMSGlobal password"
+								},
+								{
+									"key": "from",
+									"value": "",
+									"description": "MSIDSN or Sender ID that the message will appear from. Eg: 61409317436 (Do not use +before the country code)"
+								},
+								{
+									"key": "to",
+									"value": "",
+									"description": "MSIDSN of the recipient that the message will be sent to. Eg: 61409317436 (Do not use + before the country code)"
+								},
+								{
+									"key": "text",
+									"value": "",
+									"description": "Message to be sent. Must be URL encoded."
+								},
+								{
+									"key": "maxsplit",
+									"value": "0",
+									"description": "(optional) Enables splitting of message if text exceeds 160 characters. Specify number of times allowed to split.",
+									"disabled": true
+								},
+								{
+									"key": "scheduledatetime",
+									"value": "",
+									"description": "(optional) To schedule the message to be sent at a time/date in the future. Time/Date format is: “yyyy-mm-dd hh:mm:ss” which must be URL encoded. - The time must be in AEDT",
+									"disabled": true
+								},
+								{
+									"key": "optout",
+									"value": "0",
+									"description": "(optional) Set to 1 to exclude opted out numbers.",
+									"disabled": true
+								},
+								{
+									"key": "global_optout",
+									"value": "0",
+									"description": "(optional) Set to 1 to exclude global opted out numbers.",
+									"disabled": true
+								},
+								{
+									"key": "api",
+									"value": "0",
+									"description": "(optional) Set to 1 to enable shared numbers.",
+									"disabled": true
+								},
+								{
+									"key": "apireply",
+									"value": "0",
+									"description": "(optional) Set to 1 to ensure the replies are pushed out to the account e-mail address.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "send-sms",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{HttpApiUrl}}/http-api.php?action=sendsms&user={{AccountUsername}}&password={{AccountPassword}}&from=&to=&text=",
+							"host": [
+								"{{HttpApiUrl}}"
+							],
+							"path": [
+								"http-api.php"
+							],
+							"query": [
+								{
+									"key": "action",
+									"value": "sendsms",
+									"description": "Action to be taken. [Default: sendsms]"
+								},
+								{
+									"key": "user",
+									"value": "{{AccountUsername}}",
+									"description": "Your SMSGlobal username"
+								},
+								{
+									"key": "password",
+									"value": "{{AccountPassword}}",
+									"description": "Your SMSGlobal password"
+								},
+								{
+									"key": "from",
+									"value": "",
+									"description": "MSIDSN or Sender ID that the message will appear from. Eg: 61409317436 (Do not use +before the country code)"
+								},
+								{
+									"key": "to",
+									"value": "",
+									"description": "MSIDSN of the recipient that the message will be sent to. Eg: 61409317436 (Do not use + before the country code)"
+								},
+								{
+									"key": "text",
+									"value": "",
+									"description": "Message to be sent. Must be URL encoded."
+								},
+								{
+									"key": "maxsplit",
+									"value": "0",
+									"description": "(optional) Enables splitting of message if text exceeds 160 characters. Specify number of times allowed to split.",
+									"disabled": true
+								},
+								{
+									"key": "scheduledatetime",
+									"value": "",
+									"description": "(optional) To schedule the message to be sent at a time/date in the future. Time/Date format is: “yyyy-mm-dd hh:mm:ss” which must be URL encoded. - The time must be in AEDT",
+									"disabled": true
+								},
+								{
+									"key": "optout",
+									"value": "0",
+									"description": "(optional) Set to 1 to exclude opted out numbers.",
+									"disabled": true
+								},
+								{
+									"key": "global_optout",
+									"value": "0",
+									"description": "(optional) Set to 1 to exclude global opted out numbers.",
+									"disabled": true
+								},
+								{
+									"key": "api",
+									"value": "0",
+									"description": "(optional) Set to 1 to enable shared numbers.",
+									"disabled": true
+								},
+								{
+									"key": "apireply",
+									"value": "0",
+									"description": "(optional) Set to 1 to ensure the replies are pushed out to the account e-mail address.",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "SMSGlobal HTTP API .\n\nFind your API credentials in the MXT dashboard: [https://mxt.smsglobal.com/integrations](https://mxt.smsglobal.com/integrations) and copy your Master API Key Username and Password.\n\nOn the Postman `Environments` tab, set the following environment variables:\n\n`AccountUsername` = MXT Master API Key Username\n\n`AccountPassword` = MXT Master API Key Password\n\n`HttpApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)"
+		},
+		{
+			"name": "OTP",
+			"item": [
+				{
+					"name": "/v2/otp",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"message\": \"{*code*}\",\n    \"length\": 4,\n    \"codeExpiry\": 120,\n    \"origin\": \"\",\n    \"destination\": \"\",\n    \"messageExpiryDateTime\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/otp",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/otp/requestid/{id}/cancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/otp/requestid/:id/cancel",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"otp",
+								"requestid",
+								":id",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "requestId of message to cancel"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/otp/requestid/{id}/validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/otp/requestid/:id/validate",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"otp",
+								"requestid",
+								":id",
+								"validate"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "requestId of message to validate"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/otp/{msisdn}/cancel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/otp/:msisdn/cancel",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"otp",
+								":msisdn",
+								"cancel"
+							],
+							"variable": [
+								{
+									"key": "msisdn",
+									"value": "",
+									"description": "Destination number"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/otp/{msisdn}/validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"code\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/otp/:msisdn/validate",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"otp",
+								":msisdn",
+								"validate"
+							],
+							"variable": [
+								{
+									"key": "msisdn",
+									"value": "",
+									"description": "Destination number"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "SMSGlobal OTP API .\n\nView the Documentation: [https://www.smsglobal.com/otp-api](https://www.smsglobal.com/otp-api/)\n\nFind your REST/OTP API credentials in the MXT dashboard: [https://mxt.smsglobal.com/integrations](https://mxt.smsglobal.com/integrations) - Create a REST API Key/Secret for using this API.\n\nOn the Postman `Environments` tab, set the following environment variables:\n\n`RestApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\n`RestApiKey` = \\[your REST API Key\\]\n\n`RestApiSecret` = \\[your REST API Secret\\]\n\nThe REST and OTP APIs also use a dynamic environment variable that is automatically set by pre/-request scripts.\n\n`authorization` - This value is populated for authenticating requests - it also uses the above environment variables.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"var apiKey = pm.environment.get('RestApiKey');",
+							"var secretKey = pm.environment.get('RestApiSecret');",
+							"var ts = Math.floor(Date.now() / 1000);",
+							"var nonce = Math.floor((Math.random() * 10000000));",
+							"var urlRegex = /^(?:(https?):\\/\\/([^\\/:?#]+)(?::(\\d+))?)?(\\/[^?#]*)?(?:\\?([^#]*))?(?:#(.*))?$/i;",
+							"",
+							"var url = (pm.environment.replaceIn(pm.request.url)).toString();",
+							"var match = url.match(urlRegex);",
+							"var scheme = match[1] || null;",
+							"var host = match[2] || null;",
+							"var port = match[3] || null;",
+							"var path = match[4] || null;",
+							"var query = match[5] || null;",
+							"",
+							"var auth = ",
+							"    ts + '\\n' +",
+							"    nonce + '\\n' +",
+							"    pm.request.method + '\\n' + ",
+							"    path + (query ? '?' + query : '') + '\\n' +",
+							"    host + '\\n' +",
+							"    (scheme == 'http' ? 80 : 443) + '\\n' +",
+							"    '\\n';",
+							"",
+							"var authHash = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(auth, secretKey));",
+							"var authHeader = 'MAC id=\"' + apiKey + '\", ts=\"' + ts + '\", nonce=\"' + nonce + '\", mac=\"' + authHash + '\"';",
+							"pm.environment.set(\"authorization\", authHeader);",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "REST",
+			"item": [
+				{
+					"name": "/v2/auto-topup",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/auto-topup",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"auto-topup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/contact/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/contact/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"contact",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/contact/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/contact/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"contact",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/contact/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"givenName\": \"\",\n    \"familyName\": \"\",\n    \"displayName\": \"\",\n    \"msisdn\": \"\",\n    \"emailAddress\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/contact/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"contact",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group/",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group",
+								""
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"keyword\": \"\",\n    \"defaultOrigin\": \"\",\n    \"isGlobal\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group/{groupId}/contact",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"msisdn\": \"\",\n    \"givenName\": \"\",\n    \"familyName\": \"\",\n    \"displayName\": \"\",\n    \"emailAddress\": \"\",\n    \"contacts\": [\n        {\n            \"displayName\": \"\",\n            \"msisdn\": \"\",\n            \"emailAddress\": \"\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group/:groupId/contact",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group",
+								":groupId",
+								"contact"
+							],
+							"variable": [
+								{
+									"key": "groupId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group/{groupId}/contacts",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group/:groupId/contacts",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group",
+								":groupId",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "sort",
+									"value": "id",
+									"disabled": true
+								}
+							],
+							"variable": [
+								{
+									"key": "groupId",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "enter the group ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/group/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"keyword\": \"\",\n    \"defaultOrigin\": \"\",\n    \"isGlobal\": false\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/group/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"group",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "enter the group ID"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/dedicated-number",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/dedicated-number",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"dedicated-number"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/opt-outs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/opt-outs",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"opt-outs"
+							],
+							"query": [
+								{
+									"key": "phoneNumber",
+									"value": "",
+									"description": "Filter by phone number",
+									"disabled": true
+								},
+								{
+									"key": "offset",
+									"value": "0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/opt-outs",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"optouts\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/opt-outs",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"opt-outs"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/opt-outs/validate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"optouts\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/opt-outs/validate",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"opt-outs",
+								"validate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/opt-outs/{number}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"optouts\": []\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/opt-outs/:number",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"opt-outs",
+								":number"
+							],
+							"variable": [
+								{
+									"key": "number",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sharedpool",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sharedpool",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sharedpool"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sharedpool/{id}",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sharedpool/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sharedpool",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "1",
+									"description": "Pagination offset (default 1, maximum offset + limit = 10,000)",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"description": "Number of items to return (default 20, maximum 1000)",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "delivered",
+									"description": "Filter by message status. Allowed values [delivered, sent, scheduled, noCredits, invalidNumber, undelivered]",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": "",
+									"description": "Start date of the date range filter. Date format in account timezone",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": "",
+									"description": "End date of the date range filter. Date format in account timezone",
+									"disabled": true
+								},
+								{
+									"key": "destination",
+									"value": "",
+									"description": "The number message was sent to",
+									"disabled": true
+								},
+								{
+									"key": "source",
+									"value": "",
+									"description": "The number message was sent from",
+									"disabled": true
+								},
+								{
+									"key": "search",
+									"value": "",
+									"description": "Search string in source, destination and message",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms (single)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"destinations\": [],\n    \"message\": \"\",\n    \"origin\": \"\",\n    \"scheduledDateTime\": \"\",\n    \"campaign\": \"\",\n    \"sharedPool\": \"\",\n    \"notifyUrl\": \"\",\n    \"incomingUrl\": \"\",\n    \"expiryDateTime\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms (multiple)",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"messages\": [\n        {\n            \"destinations\": [],\n            \"message\": \"\",\n            \"origin\": \"\",\n            \"scheduledDateTime\": \"\",\n            \"campaign\": \"\",\n            \"sharedPool\": \"\",\n            \"notifyUrl\": \"\",\n            \"incomingUrl\": \"\",\n            \"expiryDateTime\": \"\"\n        }\n    ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "outgoing_id value of the message"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "",
+									"description": "outgoing_id value of the message"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms-incoming",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms-incoming",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms-incoming"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": "1",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": "20",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "destination",
+									"value": null,
+									"disabled": true
+								},
+								{
+									"key": "origin",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms-incoming/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms-incoming/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms-incoming",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/sms-incoming/{id}",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/sms-incoming/:id",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"sms-incoming",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/billing-details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/billing-details",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"billing-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/billing-details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"\",\n    \"phone\": \"\",\n    \"email\": \"\",\n    \"address\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"postcode\": \"\",\n    \"country\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/billing-details",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"billing-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/contact-details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/contact-details",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"contact-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/contact-details",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"id\": 0,\n    \"name\": \"\",\n    \"phone\": \"\",\n    \"email\": \"\",\n    \"address\": \"\",\n    \"city\": \"\",\n    \"state\": \"\",\n    \"postcode\": \"\",\n    \"country\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/contact-details",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"contact-details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/credit-balance",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/credit-balance",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"credit-balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/low-balance-alerts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/low-balance-alerts",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"low-balance-alerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/low-balance-alerts",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"enabled\": false,\n    \"threshold\": 0,\n    \"sendto\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/low-balance-alerts",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"low-balance-alerts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/sub-account",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\":\"\",\n    \"mobile\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/sub-account",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"sub-account"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/verified-numbers",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"\",\n    \"email\": \"\",\n    \"password\":\"\",\n    \"mobile\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/verified-numbers",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"verified-numbers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/verified-number",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"number\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/verified-number",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"verified-number"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/user/verified-number/verify",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"description": "Calculated in Scripts > Pre-request",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"number\": \"\",\n    \"pin\": 0\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/user/verified-number/verify",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"user",
+								"verified-number",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"description": "SMSGlobal REST API .\n\nView the Documentation: [https://www.smsglobal.com/rest-api](https://www.smsglobal.com/rest-api/)\n\nFind your REST/OTP API credentials in the MXT dashboard: [https://mxt.smsglobal.com/integrations](https://mxt.smsglobal.com/integrations) - Create a REST API Key/Secret for using this API.\n\nOn the Postman `Environments` tab, set the following environment variables:\n\n`RestApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\n`RestApiKey` = \\[your REST API Key\\]\n\n`RestApiSecret` = \\[your REST API Secret\\]\n\nThe REST and OTP APIs also use a dynamic environment variable that is automatically set by pre/-request scripts.\n\n`authorization` - This value is populated for authenticating requests - it also uses the above environment variables.",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							"var apiKey = pm.environment.get('RestApiKey');",
+							"var secretKey = pm.environment.get('RestApiSecret');",
+							"var ts = Math.floor(Date.now() / 1000);",
+							"var nonce = Math.floor((Math.random() * 10000000));",
+							"var urlRegex = /^(?:(https?):\\/\\/([^\\/:?#]+)(?::(\\d+))?)?(\\/[^?#]*)?(?:\\?([^#]*))?(?:#(.*))?$/i;",
+							"",
+							"var url = (pm.environment.replaceIn(pm.request.url)).toString();",
+							"var match = url.match(urlRegex);",
+							"var scheme = match[1] || null;",
+							"var host = match[2] || null;",
+							"var port = match[3] || null;",
+							"var path = match[4] || null;",
+							"var query = match[5] || null;",
+							"",
+							"var auth = ",
+							"    ts + '\\n' +",
+							"    nonce + '\\n' +",
+							"    pm.request.method + '\\n' + ",
+							"    path + (query ? '?' + query : '') + '\\n' +",
+							"    host + '\\n' +",
+							"    (scheme == 'http' ? 80 : 443) + '\\n' +",
+							"    '\\n';",
+							"",
+							"var authHash = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(auth, secretKey));",
+							"var authHeader = 'MAC id=\"' + apiKey + '\", ts=\"' + ts + '\", nonce=\"' + nonce + '\", mac=\"' + authHash + '\"';",
+							"pm.environment.set(\"authorization\", authHeader);",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "SOAP",
+			"item": [
+				{
+					"name": "apiValidateLogin",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let xml = xml2Json(responseBody);",
+									"let returnVal;",
+									"let ticket;",
+									"try {",
+									"    returnVal = xml['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:apiValidateLoginResponse']['return'];",
+									"} catch (e) {",
+									"    returnVal = null;",
+									"}",
+									"pm.expect(returnVal, \"<return> element not found in SOAP response.\").to.not.be.undefined;",
+									"",
+									"if (returnVal && returnVal._) {",
+									"    ticket = returnVal._.match(/<ticket>([^<]*)<\\/ticket>/);",
+									"    if (ticket) {",
+									"        pm.environment.set(\"SoapApiTicket\", ticket[1]);",
+									"        console.log(\"Extracted SoapApiTicket:\", ticket[1]);",
+									"    } else {",
+									"        console.log(\"Ticket not found\");",
+									"    }",
+									"} else {",
+									"    console.log(\"Ticket not found\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiValidateLogin soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <user xsi:type=\"xsd:string\">{{AccountUsername}}</user>\n         <password xsi:type=\"xsd:string\">{{AccountPassword}}</password>\n      </urn:apiValidateLogin>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Validate a user by supplied password, returns session ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "apiRenewTicket",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"let xml = xml2Json(responseBody);",
+									"let returnVal;",
+									"let ticket;",
+									"try {",
+									"    returnVal = xml['SOAP-ENV:Envelope']['SOAP-ENV:Body']['ns1:apiRenewTicketResponse']['return'];",
+									"} catch (e) {",
+									"    returnVal = null;",
+									"}",
+									"pm.expect(returnVal, \"<return> element not found in SOAP response.\").to.not.be.undefined;",
+									"",
+									"if (returnVal && returnVal._) {",
+									"    ticket = returnVal._.match(/<ticket>([^<]*)<\\/ticket>/);",
+									"    if (ticket) {",
+									"        pm.environment.set(\"SoapApiTicket\", ticket[1]);",
+									"        console.log(\"Extracted SoapApiTicket:\", ticket[1]);",
+									"    } else {",
+									"        console.log(\"Ticket not found\");",
+									"    }",
+									"} else {",
+									"    console.log(\"Ticket not found\");",
+									"}",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiRenewTicket soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiRenewTicket>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Renew a session ticket, returns session ticket"
+					},
+					"response": []
+				},
+				{
+					"name": "apiLogout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"// Clear the environment variable.",
+									"pm.environment.set(\"SoapApiTicket\", '');",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiLogout soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiLogout>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Logout, returns 1 for successful logout"
+					},
+					"response": []
+				},
+				{
+					"name": "apiGetPreference",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiGetPreference soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiGetPreference>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Get preferences, returns xml set of preferences"
+					},
+					"response": []
+				},
+				{
+					"name": "apiGetPreferenceSender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiGetPreferenceSender soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiGetPreferenceSender>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Get sender ID, returns sender ID"
+					},
+					"response": []
+				},
+				{
+					"name": "apiSetPreferenceSender",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiSetPreferenceSender soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sender xsi:type=\"xsd:string\"></sender>\n      </urn:apiSetPreferenceSender>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Set sender ID, returns 1 for successful operation"
+					},
+					"response": []
+				},
+				{
+					"name": "apiGetInterface",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiGetInterface soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiGetInterface>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Get interface, returns xml set of interface data"
+					},
+					"response": []
+				},
+				{
+					"name": "apiInterface",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiInterface soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiInterface>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Get interface, returns xml set of interface data"
+					},
+					"response": []
+				},
+				{
+					"name": "apiGetUpdate",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiGetUpdate soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiGetUpdate>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Get update, returns xml set of updated values"
+					},
+					"response": []
+				},
+				{
+					"name": "apiSendSms",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiSendSms soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n      </urn:apiSendSms>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send SMS, returns XML set of message ID and destination number"
+					},
+					"response": []
+				},
+				{
+					"name": "api2WaySendLongSms",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:api2WaySendLongSmsRequest soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <userfield xsi:type=\"xsd:string\"></userfield>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n      </urn:api2WaySendLongSmsRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send Long SMS (over 160 characters), returns XML set of message ID and destination number"
+					},
+					"response": []
+				},
+				{
+					"name": "api2WaySendSms",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:api2WaySendSmsRequest soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <userfield xsi:type=\"xsd:string\"></userfield>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n      </urn:api2WaySendSmsRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send SMS, returns XML set of message ID and destination number"
+					},
+					"response": []
+				},
+				{
+					"name": "apiSendLongSms",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiSendLongSmsRequest soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n      </urn:apiSendLongSmsRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send Long SMS, returns XML set of message ID and destination number"
+					},
+					"response": []
+				},
+				{
+					"name": "apiSendSmsToGroup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiSendSmsToGroupRequest soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n      </urn:apiSendSmsToGroupRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send SMS to group, returns xml set of message id"
+					},
+					"response": []
+				},
+				{
+					"name": "apiSendSmsToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiSendSmsToListRequest soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n      </urn:apiSendSmsToListRequest>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send SMS to list, returns xml set of message id"
+					},
+					"response": []
+				},
+				{
+					"name": "apiBalanceSms",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiBalanceSms soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiBalanceSms>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Check balance by session ticket, returns balance"
+					},
+					"response": []
+				},
+				{
+					"name": "apiBalanceCheck",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiBalanceCheck soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <iso_country xsi:type=\"xsd:string\">AU</iso_country>\n      </urn:apiBalanceCheck>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Check credit based balance by session ticket, returns SMS Balance"
+					},
+					"response": []
+				},
+				{
+					"name": "apiGetBuddyList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiGetBuddyList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n      </urn:apiGetBuddyList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Get buddylist by session ticket, returns xml set of buddies"
+					},
+					"response": []
+				},
+				{
+					"name": "apiAddBuddy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiAddBuddy soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n         <firstname xsi:type=\"xsd:string\"></firstname>\n         <lastname xsi:type=\"xsd:string\"></lastname>\n         <nickname xsi:type=\"xsd:string\"></nickname>\n         <cellphone xsi:type=\"xsd:string\"></cellphone>\n         <email xsi:type=\"xsd:string\"></email>\n         <birthday xsi:type=\"xsd:string\"></birthday>\n      </urn:apiAddBuddy>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Add a buddy to a buddygroup, returns buddy ID"
+					},
+					"response": []
+				},
+				{
+					"name": "apiUpdateBuddy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiUpdateBuddy soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <firstname xsi:type=\"xsd:string\"></firstname>\n         <lastname xsi:type=\"xsd:string\"></lastname>\n         <nickname xsi:type=\"xsd:string\"></nickname>\n         <cellphone xsi:type=\"xsd:string\"></cellphone>\n         <email xsi:type=\"xsd:string\"></email>\n         <birthday xsi:type=\"xsd:string\"></birthday>\n      </urn:apiUpdateBuddy>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Update a buddy, returns 0 for failed update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiMoveBuddy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiMoveBuddy soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <bgid_from xsi:type=\"xsd:string\"></bgid_from>\n         <bgid_to xsi:type=\"xsd:string\"></bgid_to>\n      </urn:apiMoveBuddy>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Move a buddy, returns 0 for failed update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiCopyBuddy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiCopyBuddy soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <bgid_from xsi:type=\"xsd:string\"></bgid_from>\n         <bgid_to xsi:type=\"xsd:string\"></bgid_to>\n      </urn:apiCopyBuddy>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Copy a buddy, returns 0 for failed update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiRemoveBuddy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiRemoveBuddy soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n      </urn:apiRemoveBuddy>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Remove a buddy from buddygroup, not delete it from contact lists, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiDeleteBuddy",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiDeleteBuddy soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n      </urn:apiDeleteBuddy>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Delete a buddy, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiAddBuddyGroup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiAddBuddyGroup soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <name xsi:type=\"xsd:string\"></name>\n      </urn:apiAddBuddyGroup>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Add a buddygroup, returns buddygroup ID"
+					},
+					"response": []
+				},
+				{
+					"name": "apiUpdateBuddyGroup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiUpdateBuddyGroup soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n         <name xsi:type=\"xsd:string\"></name>\n      </urn:apiUpdateBuddyGroup>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Update a buddygroup, returns 0 for failed update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiDeleteBuddyGroup",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiDeleteBuddyGroup soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n      </urn:apiDeleteBuddyGroup>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Delete a buddygroup, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiAddBuddyBulkList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiAddBuddyBulkList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <name xsi:type=\"xsd:string\"></name>\n      </urn:apiAddBuddyBulkList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Add a buddybulklist, returns buddybulklist ID"
+					},
+					"response": []
+				},
+				{
+					"name": "apiUpdateBuddyBulkList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiUpdateBuddyBulkList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bblid xsi:type=\"xsd:string\"></bblid>\n         <name xsi:type=\"xsd:string\"></name>\n      </urn:apiUpdateBuddyBulkList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Update a buddybulklist, returns 0 for failed update"
+					},
+					"response": []
+				},
+				{
+					"name": "apiDeleteBuddyBulkList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiDeleteBuddyBulkList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bblid xsi:type=\"xsd:string\"></bblid>\n      </urn:apiDeleteBuddyBulkList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Delete a buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiMoveBuddyToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiMoveBuddyToList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <blid_from xsi:type=\"xsd:string\"></blid_from>\n         <blid_to xsi:type=\"xsd:string\"></blid_to>\n      </urn:apiMoveBuddyToList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Move a buddy to buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiCopyBuddyToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiCopyBuddyToList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <blid_from xsi:type=\"xsd:string\"></blid_from>\n         <blid_to xsi:type=\"xsd:string\"></blid_to>\n      </urn:apiCopyBuddyToList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Copy a buddy to buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiRemoveBuddyFromList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiRemoveBuddyFromList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bid xsi:type=\"xsd:string\"></bid>\n         <blid xsi:type=\"xsd:string\"></blid>\n      </urn:apiRemoveBuddyFromList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Remove a buddy From buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiMoveBuddyGroupToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiMoveBuddyGroupToList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n         <blid_from xsi:type=\"xsd:string\"></blid_from>\n         <blid_to xsi:type=\"xsd:string\"></blid_to>\n      </urn:apiMoveBuddyGroupToList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Move a Buddy Group to buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiCopyBuddyGroupToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiCopyBuddyGroupToList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n         <blid_from xsi:type=\"xsd:string\"></blid_from>\n         <blid_to xsi:type=\"xsd:string\"></blid_to>\n      </urn:apiCopyBuddyGroupToList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Copy a Buddy Group to buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiRemoveBuddyGroupFromList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiRemoveBuddyGroupFromList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <bgid xsi:type=\"xsd:string\"></bgid>\n         <blid xsi:type=\"xsd:string\"></blid>\n      </urn:apiRemoveBuddyGroupFromList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Remove a BuddyGroup From buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiMoveListToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiMoveListToList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <oblid xsi:type=\"xsd:string\"></oblid>\n         <blid_from xsi:type=\"xsd:string\"></blid_from>\n         <blid_to xsi:type=\"xsd:string\"></blid_to>\n      </urn:apiMoveListToList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Move a bulk list to buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiCopyListToList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiCopyListToList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <oblid xsi:type=\"xsd:string\"></oblid>\n         <blid_from xsi:type=\"xsd:string\"></blid_from>\n         <blid_to xsi:type=\"xsd:string\"></blid_to>\n      </urn:apiCopyListToList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Copy a bulk list to buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiRemoveListFromList",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiRemoveListFromList soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <oblid xsi:type=\"xsd:string\"></oblid>\n         <blid xsi:type=\"xsd:string\"></blid>\n      </urn:apiRemoveListFromList>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Remove a bulk list From buddybulklist, returns 0 for failed deletion"
+					},
+					"response": []
+				},
+				{
+					"name": "apiMTEmail",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "text/xml",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<soapenv:Envelope xmlns:xsi=\"http://www.w3.org/2001/XMLSchema-instance\" xmlns:xsd=\"http://www.w3.org/2001/XMLSchema\" xmlns:soapenv=\"http://schemas.xmlsoap.org/soap/envelope/\" xmlns:urn=\"urn:MobileWorks\">\n   <soapenv:Header/>\n   <soapenv:Body>\n      <urn:apiMTEmail soapenv:encodingStyle=\"http://schemas.xmlsoap.org/soap/encoding/\">\n         <ticket xsi:type=\"xsd:string\">{{SoapApiTicket}}</ticket>\n         <sms_from xsi:type=\"xsd:string\"></sms_from>\n         <sms_to xsi:type=\"xsd:string\"></sms_to>\n         <msg_content xsi:type=\"xsd:string\"></msg_content>\n         <msg_type xsi:type=\"xsd:string\">text</msg_type>\n         <unicode xsi:type=\"xsd:string\">0</unicode>\n         <schedule xsi:type=\"xsd:string\"></schedule>\n         <return_email xsi:type=\"xsd:string\"></return_email>\n      </urn:apiMTEmail>\n   </soapenv:Body>\n</soapenv:Envelope>",
+							"options": {
+								"raw": {
+									"language": "xml"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							]
+						},
+						"description": "Send SMS, returns XML set of message ID and destination number"
+					},
+					"response": []
+				},
+				{
+					"name": "WSDL",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{SoapApiUrl}}/soap/soapserver.php?wsdl",
+							"host": [
+								"{{SoapApiUrl}}"
+							],
+							"path": [
+								"soap",
+								"soapserver.php"
+							],
+							"query": [
+								{
+									"key": "wsdl",
+									"value": null
+								}
+							]
+						},
+						"description": "Get the WSDL"
+					},
+					"response": []
+				}
+			],
+			"description": "SMSGlobal SOAP API .\n\nView the Documentation: [https://www.smsglobal.com/soap-api/](https://www.smsglobal.com/soap-api/)\n\nView the WSDL: [https://api.smsglobal.com/soap/soapserver.php?wsdl](https://api.smsglobal.com/soap/soapserver.php?wsdl)\n\nFind your SOAP API credentials in the MXT dashboard: [https://mxt.smsglobal.com/integrations](https://mxt.smsglobal.com/integrations) and copy your Master API Key Username and Password.\n\nOn the Postman `Environments` tab, set the following environment variables:\n\n`AccountUsername` = MXT Master API Key Username\n\n`AccountPassword` = MXT Master API Key Password\n\n`SoapApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\nThe SOAP API also uses a dynamic environment variable that is automatically set by post-response script.\n\n`SoapApiToken` - This value is populated for authenticating requests - it also uses the above environment variables.\n\nStart with the `apiValidateLogin` request to get your API token. A successful response from this request will return your SOAP API `ticket` and will be saved as the `SoapApiTicket` environment variable, which is subsequently used in all other SOAP API requests."
+		}
+	]
+}
