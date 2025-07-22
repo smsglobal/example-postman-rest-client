@@ -1,0 +1,63 @@
+{
+	"id": "ed2c8e9b-17ea-4d2c-b56e-e6ba7012f30e",
+	"name": "SMSGlobal",
+	"values": [
+		{
+			"key": "HttpApiUrl",
+			"value": "https://api.smsglobal.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "RestApiUrl",
+			"value": "https://api.smsglobal.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "SoapApiUrl",
+			"value": "https://api.smsglobal.com",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "AccountUsername",
+			"value": "<enter your account username>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "AccountPassword",
+			"value": "<enter your account password>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "RestApiKey",
+			"value": "<enter your Rest API Key>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "RestApiSecret",
+			"value": "<enter your Rest API Secret>",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "authorization",
+			"value": "<calculated script value>",
+			"type": "any",
+			"enabled": true
+		},
+		{
+			"key": "SoapApiTicket",
+			"value": "<calculated script value>",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2025-07-18T01:42:52.769Z",
+	"_postman_exported_using": "Postman/11.54.3"
+}
