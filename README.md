@@ -4,12 +4,13 @@ The Postman App allows you to test API's quickly and easily.
 
 Download our Postman collection (v2.1) for SMSGlobal API.
 
-Includes 4 API endpoints:
+Includes the following API endpoints:
 
-* [HTTP API](https://www.smsglobal.com/rest-api/)
-* [REST API](https://www.smsglobal.com/http-api/)
+* [HTTP API](https://www.smsglobal.com/http-api/)
+* [REST API](https://www.smsglobal.com/rest-api/)
 * [SOAP API](https://www.smsglobal.com/soap-api/)
 * [OTP API](https://www.smsglobal.com/otp-api/)
+* [WhatsApp API](https://www.smsglobal.com/whatsapp-api/)
 
 View the API documentation [here](https://www.smsglobal.com/api-reference/)
 
@@ -19,7 +20,7 @@ Find the Postman App [here](https://www.postman.com/)
 
 The Collection will provide quick access to our range of APIs.
 
-The Environment file will provide you the environment variables need to test the Collection.
+The Environment file will provide you the environment variables needed to test the Collection.
 
 [Download SMSGlobal Postman Collection](collection.json)
 

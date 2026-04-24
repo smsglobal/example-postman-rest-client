@@ -4666,6 +4666,544 @@
 				}
 			],
 			"description": "SMSGlobal SOAP API .\n\nView the Documentation: [https://www.smsglobal.com/soap-api/](https://www.smsglobal.com/soap-api/)\n\nView the WSDL: [https://api.smsglobal.com/soap/soapserver.php?wsdl](https://api.smsglobal.com/soap/soapserver.php?wsdl)\n\nFind your SOAP API credentials in the MXT dashboard: [https://mxt.smsglobal.com/integrations](https://mxt.smsglobal.com/integrations) and copy your Master API Key Username and Password.\n\nOn the Postman `Environments` tab, set the following environment variables:\n\n`AccountUsername` = MXT Master API Key Username\n\n`AccountPassword` = MXT Master API Key Password\n\n`SoapApiUrl` = [https://api.smsglobal.com](https://api.smsglobal.com)\n\nThe SOAP API also uses a dynamic environment variable that is automatically set by post-response script.\n\n`SoapApiToken` - This value is populated for authenticating requests - it also uses the above environment variables.\n\nStart with the `apiValidateLogin` request to get your API token. A successful response from this request will return your SOAP API `ticket` and will be saved as the `SoapApiTicket` environment variable, which is subsequently used in all other SOAP API requests."
+		},
+		{
+			"name": "WhatsApp",
+			"item": [
+				{
+					"name": "/v2/whatsapp/contacts",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/contacts",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"contacts"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": null,
+									"description": "Pagination offset, default 0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"description": "Number of results to return, default 20",
+									"disabled": true
+								},
+								{
+									"key": "identity",
+									"value": null,
+									"description": "Filter by WhatsApp User ID",
+									"disabled": true
+								},
+								{
+									"key": "externalId",
+									"value": null,
+									"description": "Filter by WhatsApp Message ID",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/contacts",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"identity\": \"61412345678\",\n    \"displayName\": \"John Smith\",\n    \"language\": \"EN\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/contacts",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"contacts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/contact/{WhatsAppID}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/contact/:WhatsAppID",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"contact",
+								":WhatsAppID"
+							],
+							"variable": [
+								{
+									"key": "WhatsAppID",
+									"value": "01KHAQW80YRVE26WJ8SKSRG09Z"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/contact/{WhatsAppID}",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/contact/:WhatsAppID",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"contact",
+								":WhatsAppID"
+							],
+							"variable": [
+								{
+									"key": "WhatsAppID",
+									"value": "01KHAQW80YRVE26WJ8SKSRG09Z"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/contact/{WhatsAppID}",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/contact/:WhatsAppID",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"contact",
+								":WhatsAppID"
+							],
+							"variable": [
+								{
+									"key": "WhatsAppID",
+									"value": "01KN0M4Z3RT3V7Q8R6CTMFJWAD"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/messages",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/messages",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"messages"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/message (template)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"recipient\": {\n    \"identity\": \"61412345678\"\n  },\n  \"type\": \"template\",\n    \"templateMessage\": {\n        \"templateId\": \"YOUR_TEMPLATE_NAME\",\n        \"language\": \"EN\",\n        \"parameters\": {\n            \"body[1]text\": \"YOUR_PARAMETER_VALUE\"        }\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/message",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/message (text)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient\": {\n        \"identity\": \"61412345678\"\n    },\n    \"type\": \"text\",\n    \"textMessage\": {\n        \"text\": \"YOUR TEXT MESSAGE HERE\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/message",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/message (media)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient\": {\n        \"identity\": \"61412345678\"\n    },\n    \"type\": \"media\",\n    \"mediaMessage\": {\n        \"url\": \"YOUR_IMAGE_URL\",\n        \"filenameOverride\": \"\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/message",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/message (location)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"recipient\": {\n        \"identity\": \"61412345678\"\n    },\n    \"type\": \"location\",\n    \"locationMessage\": {\n        \"coordinates\": {\n            \"latitude\": \"\",\n            \"longitude\": \"\"\n        },\n        \"title\": \"\",\n        \"label\": \"\"\n    }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/message",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"message"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/message/{WhatsAppID}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/message/:WhatsAppID",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"message",
+								":WhatsAppID"
+							],
+							"variable": [
+								{
+									"key": "WhatsAppID",
+									"value": "01KHA3079M5SNQCZMZ4P9QYB4D"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/incoming",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/incoming",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"incoming"
+							],
+							"query": [
+								{
+									"key": "offset",
+									"value": null,
+									"description": "Pagination offset, default 0",
+									"disabled": true
+								},
+								{
+									"key": "limit",
+									"value": null,
+									"description": "Number of results to return, default 20",
+									"disabled": true
+								},
+								{
+									"key": "identity",
+									"value": null,
+									"description": "Filter by WhatsApp User ID",
+									"disabled": true
+								},
+								{
+									"key": "startDate",
+									"value": null,
+									"description": "Start date filter",
+									"disabled": true
+								},
+								{
+									"key": "endDate",
+									"value": null,
+									"description": "End date filter",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/v2/whatsapp/incoming/{WhatsAppID}",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "{{authorization}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{RestApiUrl}}/v2/whatsapp/incoming/:WhatsAppID",
+							"host": [
+								"{{RestApiUrl}}"
+							],
+							"path": [
+								"v2",
+								"whatsapp",
+								"incoming",
+								":WhatsAppID"
+							],
+							"variable": [
+								{
+									"key": "WhatsAppID",
+									"value": "01KJBWHN88C0DY1VF5SHHN9S33"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							"var apiKey = pm.environment.get('RestApiKey');",
+							"var secretKey = pm.environment.get('RestApiSecret');",
+							"var ts = Math.floor(Date.now() / 1000);",
+							"var nonce = Math.floor((Math.random() * 10000000));",
+							"var urlRegex = /^(?:(https?):\\/\\/([^\\/:?#]+)(?::(\\d+))?)?(\\/[^?#]*)?(?:\\?([^#]*))?(?:#(.*))?$/i;",
+							"",
+							"var url = (pm.environment.replaceIn(pm.request.url)).toString();",
+							"var match = url.match(urlRegex);",
+							"var scheme = match[1] || null;",
+							"var host = match[2] || null;",
+							"var port = match[3] || null;",
+							"var path = match[4] || null;",
+							"var query = match[5] || null;",
+							"",
+							"var auth = ",
+							"    ts + '\\n' +",
+							"    nonce + '\\n' +",
+							"    pm.request.method + '\\n' + ",
+							"    path + (query ? '?' + query : '') + '\\n' +",
+							"    host + '\\n' +",
+							"    (scheme == 'http' ? 80 : 443) + '\\n' +",
+							"    '\\n';",
+							"",
+							"var authHash = CryptoJS.enc.Base64.stringify(CryptoJS.HmacSHA256(auth, secretKey));",
+							"var authHeader = 'MAC id=\"' + apiKey + '\", ts=\"' + ts + '\", nonce=\"' + nonce + '\", mac=\"' + authHash + '\"';",
+							"pm.environment.set(\"authorization\", authHeader);",
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {},
+						"exec": [
+							""
+						]
+					}
+				}
+			]
 		}
 	]
 }
